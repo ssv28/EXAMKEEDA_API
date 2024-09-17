@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
-let QuestionController = require("../Controller/Exam")
+let QuestionController = require("../Controller/Question")
 let UserController = require("../Controller/User")
 
 

@@ -11,8 +11,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
   .catch((err) => console.log(err.message)
   )
 
-var examsRouter = require('./routes/exams');
 var usersRouter = require('./routes/users');
+var examsRouter = require('./routes/exams');
 var questionsRouter = require('./routes/questions');
 var resultsRouter = require('./routes/results');
 
@@ -28,19 +28,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/exams', examsRouter);
 app.use('/users', usersRouter);
-app.use('/results', resultsRouter);
+app.use('/exams', examsRouter);
 app.use('/questions', questionsRouter);
+app.use('/results', resultsRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
