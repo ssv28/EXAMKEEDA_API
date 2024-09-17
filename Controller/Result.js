@@ -23,7 +23,7 @@ exports.ResultCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let ResultData = await Result.find()
+        let ResultData = await Result.find().populate("studentId").populate("examId")
 
         res.status(200).json({
             status: "Success",

@@ -23,7 +23,7 @@ exports.ExamCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let ExamData = await Exam.find()
+        let ExamData = await Exam.find().populate("createdBy")
 
         res.status(200).json({
             status: "Success",
