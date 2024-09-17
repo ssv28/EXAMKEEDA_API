@@ -23,7 +23,7 @@ exports.QuestionCreate = async function (req, res, next) {
 exports.FindData = async function (req, res, next) {
     try {
 
-        let QuestionData = await Question.find().populate("user").populate("products.product")
+        let QuestionData = await Question.find()
 
         res.status(200).json({
             status: "Success",
